@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GotItBack.Data.Objects.Entities
 {
-    class Category
+    public class Category
     {
+        public long CategoryId { get; set; }
+        public string Name { get; set; }
+        public IEnumerable<SubCategory> SubCategories { get; set; }
     }
 }
