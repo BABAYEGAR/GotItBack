@@ -6,7 +6,7 @@ namespace GotItBack.Data.Context.DataContext
     public class StateDataContext : DbContext
     {
         public StateDataContext()
-            : base("name=SAAS-OPMAS")
+            : base("name=GotItBack")
         {
         }
 

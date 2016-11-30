@@ -6,7 +6,7 @@ namespace GotItBack.Data.Context.DataContext
     public class LgaDataContext : DbContext
     {
         public LgaDataContext()
-            : base("name=SAAS-OPMAS")
+            : base("name=GotItBack")
         {
         }
 
