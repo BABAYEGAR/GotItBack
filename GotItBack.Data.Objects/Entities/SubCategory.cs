@@ -13,8 +13,8 @@ namespace GotItBack.Data.Objects.Entities
         [DisplayName("Sub-Category")]
         public long SubCategoryId { get; set; }
         public string Name { get; set; }
-        [ForeignKey("CategoryId")]
         public long CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
     }

@@ -27,5 +27,8 @@ namespace GotItBack.Data.Objects.Entities
         public string Model { get; set; }
         [DisplayName("Image")]
         public string ItemImage { get; set; }
+
+
+        
     }
 }
