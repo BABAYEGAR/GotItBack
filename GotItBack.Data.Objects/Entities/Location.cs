@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GotItBack.Data.Objects.Entities
 {
-    public class Location
+    public class Location : Transport
     {
         public long LocationId { get; set; }
         public string Address { get; set; }

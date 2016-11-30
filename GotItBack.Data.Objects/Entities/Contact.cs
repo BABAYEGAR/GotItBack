@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GotItBack.Data.Objects.Entities
 {
-    public class Contact
+    public class Contact : Transport
     {
         [Key]
         public long ContactId { get; set; }

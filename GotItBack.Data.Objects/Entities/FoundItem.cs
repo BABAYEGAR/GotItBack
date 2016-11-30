@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GotItBack.Data.Objects.Entities
 {
-    public class FoundItem
+    public class FoundItem : Transport
     {
         public long FoundItemId { get; set; }
         [DisplayName("Date Item Was Found")]
