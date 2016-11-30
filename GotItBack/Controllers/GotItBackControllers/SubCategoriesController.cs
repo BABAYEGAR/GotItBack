@@ -38,9 +38,10 @@ namespace GotItBack.Controllers.GotItBackControllers
         }
 
         // GET: SubCategories/Create
-        public ActionResult Create()
+        public ActionResult Create(long categoryId)
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
+            ViewBag.SelectedCategoryId = categoryId;
             return View();
         }
 
@@ -49,13 +50,14 @@ namespace GotItBack.Controllers.GotItBackControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SubCategoryId,Name,CategoryId")] SubCategory subCategory)
+        public ActionResult Create([Bind(Include = "SubCategoryId,Name")] SubCategory subCategory,FormCollection collectedValues)
         {
             if (ModelState.IsValid)
             {
+                subCategory.CategoryId = long.Parse(collectedValues["CategoryId"]);
                 db.SubCategories.Add(subCategory);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create",new {categoryId = subCategory.CategoryId});
             }
 
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name", subCategory.CategoryId);

@@ -29,7 +29,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }, new { @class = "btn btn-warning" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.CategoryId }, new { @class = "btn btn-default" }) |
+                        @Html.ActionLink("View Sub-Categories", "Create","SubCategories", new { categoryId = item.CategoryId }, new { @class = "btn btn-default" }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
