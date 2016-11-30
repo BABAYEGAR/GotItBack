@@ -16,5 +16,6 @@ namespace GotItBack.Data.Objects.Entities
         [ForeignKey("CategoryId")]
         public long CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
     }
 }

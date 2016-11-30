@@ -18,7 +18,14 @@ namespace GotItBack.Data.Objects.Entities
         public long SubCategoryId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        [DisplayName("Primary Color")]
+        [DisplayName("Color")]
         public string Color { get; set; }
+        [DisplayName("Brand/Breed")]
+        public string Brand { get; set; }
+        [DisplayName("Serial #/ID #/Baggage Claim #")]
+        public string SerialNumber { get; set; }
+        public string Model { get; set; }
+        [DisplayName("Image")]
+        public string ItemImage { get; set; }
     }
 }
