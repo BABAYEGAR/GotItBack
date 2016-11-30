@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContext\SubCategoryDataContext.cs" />
+    <Compile Include="DataContext\CategoryDataContext.cs" />
     <Compile Include="DataContext\LgaDataContext.cs" />
     <Compile Include="DataContext\ContactDataContext.cs" />
     <Compile Include="DataContext\StateDataContext.cs" />
