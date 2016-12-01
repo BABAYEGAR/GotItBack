@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,7 +14,9 @@ namespace GotItBack.Data.Objects.Entities
         [Key]
         public long ContactId { get; set; }
         [Required]
+        [DisplayName("Phone Number")]
         public string PhoneNumber { get; set; }
+        [Required]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }

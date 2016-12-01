@@ -6,6 +6,7 @@
 <h2></h2>
 @section css{
     <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Scripts/Form/css/select2.min.css" rel="stylesheet" />
 }
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
@@ -41,10 +42,14 @@
 @section scripts {
 
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Form/js/select2.min.js"></script>
     <script>
         $(document)
             .ready(function() {
                 $('#dataTable').DataTable();
+
+                // Init select2 for dropdown select
+                $('.select-dropdown').select2();
             });
 
     </script>
