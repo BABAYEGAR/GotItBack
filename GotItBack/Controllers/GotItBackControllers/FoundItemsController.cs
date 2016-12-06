@@ -50,10 +50,14 @@ namespace GotItBack.Controllers.GotItBackControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FoundItemId,DateItemFound,CategoryId,SubCategoryId,Title,Description,Color,Brand,SerialNumber,Model,ItemImage,CreatedBy,DateCreated,DateLastModified,LastModifiedBy")] FoundItem foundItem)
+        public ActionResult Create([Bind(Include = "FoundItemId,DateItemFound,CategoryId,SubCategoryId,Title,Description,Color,Brand,SerialNumber,Model,ItemImage")] FoundItem foundItem)
         {
             if (ModelState.IsValid)
             {
+                foundItem.DateCreated = DateTime.Now;
+                foundItem.DateLastModified = DateTime.Now;
+                foundItem.CreatedBy = 0;
+                foundItem.LastModifiedBy = 0;
                 db.FoundItems.Add(foundItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
