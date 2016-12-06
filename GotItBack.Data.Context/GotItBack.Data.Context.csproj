@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContext\FoundItemDataContext.cs" />
     <Compile Include="DataContext\SubCategoryDataContext.cs" />
     <Compile Include="DataContext\CategoryDataContext.cs" />
     <Compile Include="DataContext\LgaDataContext.cs" />
@@ -61,6 +62,18 @@
     <Compile Include="Migrations\201612062254074_SecondMigrates.cs" />
     <Compile Include="Migrations\201612062254074_SecondMigrates.Designer.cs">
       <DependentUpon>201612062254074_SecondMigrates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612062326599_ThirdMigrates.cs" />
+    <Compile Include="Migrations\201612062326599_ThirdMigrates.Designer.cs">
+      <DependentUpon>201612062326599_ThirdMigrates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612062329381_4thMigrate.cs" />
+    <Compile Include="Migrations\201612062329381_4thMigrate.Designer.cs">
+      <DependentUpon>201612062329381_4thMigrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612062339131_ghjh.cs" />
+    <Compile Include="Migrations\201612062339131_ghjh.Designer.cs">
+      <DependentUpon>201612062339131_ghjh.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +94,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612062254074_SecondMigrates.resx">
       <DependentUpon>201612062254074_SecondMigrates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612062326599_ThirdMigrates.resx">
+      <DependentUpon>201612062326599_ThirdMigrates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612062329381_4thMigrate.resx">
+      <DependentUpon>201612062329381_4thMigrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612062339131_ghjh.resx">
+      <DependentUpon>201612062339131_ghjh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

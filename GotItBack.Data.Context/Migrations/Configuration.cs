@@ -5,14 +5,14 @@ namespace GotItBack.Data.Context.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<GotItBack.Data.Context.DataContext.ContactDataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<GotItBack.Data.Context.DataContext.FoundItemDataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(GotItBack.Data.Context.DataContext.ContactDataContext context)
+        protected override void Seed(GotItBack.Data.Context.DataContext.FoundItemDataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

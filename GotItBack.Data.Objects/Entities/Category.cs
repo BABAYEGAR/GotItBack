@@ -13,5 +13,6 @@ namespace GotItBack.Data.Objects.Entities
         public long CategoryId { get; set; }
         public string Name { get; set; }
         public IEnumerable<SubCategory> SubCategories { get; set; }
+        public IEnumerable<FoundItem> FoundItems { get; set; }
     }
 }

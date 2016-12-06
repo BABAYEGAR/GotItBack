@@ -48,7 +48,7 @@ namespace GotItBack.Controllers.GotItBackControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,PhoneNumber,Email,DisplayNumber")] Contact contact,FormCollection collectedValues)
+        public ActionResult Create([Bind(Include = "ContactId,PhoneNumber,Email,DisplayNumber,Password")] Contact contact,FormCollection collectedValues)
         {
             var loggedinuser = Session["gotitbackloggedinuser"] as Contact;
             if (ModelState.IsValid)
@@ -74,6 +74,7 @@ namespace GotItBack.Controllers.GotItBackControllers
                     }
                     db.Contacts.Add(contact);
                     db.SaveChanges();
+                    TempData["saveContact"] = "Make sure the password field and confirm password are the same!";
                 }
                 return RedirectToAction("Index");
             }

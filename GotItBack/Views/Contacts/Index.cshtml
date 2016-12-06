@@ -9,7 +9,12 @@
 <p>
     @Html.ActionLink("Create New", "Create",null,new {@class = "btn btn-success"})
 </p>
-<table class="table">
+
+@if (TempData["saveContact"] != null)
+{
+    <div class="alert alert-success">@TempData["saveContact"]</div>
+}
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.PhoneNumber)
