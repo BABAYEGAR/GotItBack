@@ -48,18 +48,30 @@ namespace GotItBack.Controllers.GotItBackControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,PhoneNumber,Email,Password,DisplayNumber")] Contact contact)
+        public ActionResult Create([Bind(Include = "ContactId,PhoneNumber,Email,DisplayNumber")] Contact contact,FormCollection collectedValues)
         {
             var loggedinuser = Session["gotitbackloggedinuser"] as Contact;
             if (ModelState.IsValid)
             {
                 if (loggedinuser == null)
                 {
+                    var password = collectedValues["Password"];
+                    var confirmPassword = collectedValues["ConfirmPassword"];
                     contact.DateCreated = DateTime.Now;
                     contact.CreatedBy = 0;
                     contact.DateLastModified = DateTime.Now;
                     contact.LastModifiedBy = 0;
                     contact.Role = Usertype.Client.ToString();
+                    if (password == confirmPassword)
+                    {
+                        contact.Password = confirmPassword;
+                    
+                    }
+                    else
+                    {
+                        TempData["wrongPassword"] = "Make sure the password field and confirm password are the same!";
+                        return View(contact);
+                    }
                     db.Contacts.Add(contact);
                     db.SaveChanges();
                 }
@@ -89,10 +101,12 @@ namespace GotItBack.Controllers.GotItBackControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,PhoneNumber,Email,Password")] Contact contact)
+        public ActionResult Edit([Bind(Include = "ContactId,PhoneNumber,Email,Password,Role,DateCreated,CreatedBy,DisplayNumber")] Contact contact)
         {
             if (ModelState.IsValid)
             {
+                contact.LastModifiedBy = 0;
+                contact.DateLastModified = DateTime.Now;
                 db.Entry(contact).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

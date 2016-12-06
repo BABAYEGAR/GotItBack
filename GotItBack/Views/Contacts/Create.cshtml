@@ -14,6 +14,10 @@
     <div class="form-horizontal">
         <h4>Contact</h4>
         <hr />
+        @if (TempData["wrongPassword"] != null)
+        {
+            <div class="alert alert-danger">@TempData["wrongPassword"]</div>
+        }
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group col-md-12">
             @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
