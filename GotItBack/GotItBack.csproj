@@ -357,6 +357,10 @@
       <Project>{74e2abc5-8d09-41a9-bf80-ffc6b36b1eb9}</Project>
       <Name>GotItBack.Data.Objects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GotItBack.Data.Service\GotItBack.Data.Service.csproj">
+      <Project>{F357FB2C-33BB-496A-8F3A-F04CC2D9E1A0}</Project>
+      <Name>GotItBack.Data.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

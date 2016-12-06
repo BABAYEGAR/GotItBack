@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GotItBack.Data.Context.DataContext;
 using GotItBack.Data.Objects.Entities;
+using GotItBack.Data.Service.Enums;
 
 namespace GotItBack.Controllers.GotItBackControllers
 {
@@ -47,12 +48,21 @@ namespace GotItBack.Controllers.GotItBackControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,PhoneNumber,Email,Password")] Contact contact)
+        public ActionResult Create([Bind(Include = "ContactId,PhoneNumber,Email,Password,DisplayNumber")] Contact contact)
         {
+            var loggedinuser = Session["gotitbackloggedinuser"] as Contact;
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
+                if (loggedinuser == null)
+                {
+                    contact.DateCreated = DateTime.Now;
+                    contact.CreatedBy = 0;
+                    contact.DateLastModified = DateTime.Now;
+                    contact.LastModifiedBy = 0;
+                    contact.Role = Usertype.Client.ToString();
+                    db.Contacts.Add(contact);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 

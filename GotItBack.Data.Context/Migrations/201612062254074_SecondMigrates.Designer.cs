@@ -7,13 +7,13 @@ namespace GotItBack.Data.Context.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class TransportObject : IMigrationMetadata
+    public sealed partial class SecondMigrates : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TransportObject));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SecondMigrates));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611300419397_Transport Object"; }
+            get { return "201612062254074_SecondMigrates"; }
         }
         
         string IMigrationMetadata.Source
