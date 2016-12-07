@@ -885,6 +885,7 @@
     <Content Include="Scripts\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
     <Content Include="Scripts\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.min.css.map" />
     <Content Include="Views\FoundItems\LostItem.cshtml" />
+    <Content Include="Views\FoundItems\SearchItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

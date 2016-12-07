@@ -10,6 +10,5 @@ namespace GotItBack.Data.Objects.Entities
     {
         public int StateId { get; set; }
         public string Name { get; set; }
-        public IEnumerable<Lga> Lgas { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace GotItBack.Controllers.GotItBackControllers
     public class FoundItemsController : Controller
     {
         private FoundItemDataContext db = new FoundItemDataContext();
+        private StateDataContext dbs = new StateDataContext();
 
         // GET: FoundItems
         public ActionResult Index()
@@ -23,6 +24,7 @@ namespace GotItBack.Controllers.GotItBackControllers
             var foundItems = db.FoundItems.Include(f => f.Category).Include(f => f.SubCategory);
             return View(foundItems.ToList());
         }
+
 
         // GET: FoundItems/Details/5
         public ActionResult Details(long? id)
@@ -135,7 +137,21 @@ namespace GotItBack.Controllers.GotItBackControllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        // GET: FoundItems/LostItem
+        public ActionResult LostItem()
+        {
+            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name");
+            ViewBag.SubCategoryId = new SelectList(db.SubCategories, "SubCategoryId", "Name");
+            return View();
+        }
+        // GET: FoundItems/SearchItem
+        public ActionResult SearchItem()
+        {
+            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name");
+            ViewBag.SubCategoryId = new SelectList(db.SubCategories, "SubCategoryId", "Name");
+            ViewBag.State = new SelectList(dbs.States, "StateId", "Name");
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

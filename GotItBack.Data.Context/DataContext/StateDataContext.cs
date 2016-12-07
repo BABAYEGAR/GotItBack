@@ -11,7 +11,6 @@ namespace GotItBack.Data.Context.DataContext
         }
 
         public virtual DbSet<State> States { get; set; }
-        public virtual DbSet<Lga> Lgas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
