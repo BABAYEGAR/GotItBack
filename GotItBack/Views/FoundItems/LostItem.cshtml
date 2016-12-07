@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="~/Scripts/plugins/select2/css/select2.min.css" rel="stylesheet" />
 }
-@using (Html.BeginForm("Create", "FoundItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
@@ -92,7 +92,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ItemImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="ItemImage" id="ItemImage" style="width: 100%;" />
+                @Html.EditorFor(model => model.ItemImage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ItemImage, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

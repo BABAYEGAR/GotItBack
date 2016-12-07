@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using GotItBack.Data.Context.DataContext;
 using GotItBack.Data.Objects.Entities;
+using GotItBack.Data.Service.Enums;
+using GotItBack.Data.Service.FileUploader;
 
 namespace GotItBack.Controllers.GotItBackControllers
 {
@@ -52,8 +54,13 @@ namespace GotItBack.Controllers.GotItBackControllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FoundItemId,DateItemFound,CategoryId,SubCategoryId,Title,Description,Color,Brand,SerialNumber,Model,ItemImage")] FoundItem foundItem)
         {
+            HttpPostedFileBase image = Request.Files["ItemImage"];
             if (ModelState.IsValid)
             {
+                if (image != null && image.FileName != "")
+                {
+                    foundItem.ItemImage = new FileUploader().UploadFile(image, UploadType.ItemImage);
+                }
                 foundItem.DateCreated = DateTime.Now;
                 foundItem.DateLastModified = DateTime.Now;
                 foundItem.CreatedBy = 0;
