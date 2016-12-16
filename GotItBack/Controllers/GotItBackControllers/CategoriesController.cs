@@ -14,13 +14,24 @@ namespace GotItBack.Controllers.GotItBackControllers
     public class CategoriesController : Controller
     {
         private CategoryDataContext db = new CategoryDataContext();
+        private SubCategoryDataContext dbc = new SubCategoryDataContext();
 
         // GET: Categories
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
         }
-
+        /// <summary>
+        ///     Sends Json responds object to view with sub category of the category requested via an Ajax call
+        /// </summary>
+        /// <param name="id"> state id</param>
+        /// <returns>lgas</returns>
+        /// Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+        public JsonResult GetSubCategoryForCategory(long id)
+        {
+            var subCategories = dbc.SubCategories.Where(n => n.CategoryId == id);
+            return Json(subCategories, JsonRequestBehavior.AllowGet);
+        }
         // GET: Categories/Details/5
         public ActionResult Details(long? id)
         {
