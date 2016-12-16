@@ -20,7 +20,6 @@ namespace GotItBack.Data.Objects.Entities
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [MaxLength(10,ErrorMessage = "Maximum of 10 characters")]
         public string Password { get; set; }
         public string Role { get; set; }
         [DisplayName("Display Number")]
