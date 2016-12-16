@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using GotItBack.Data.Context.DataContext;
 using GotItBack.Data.Factory.FactoryClasses;
+using GotItBack.Data.Objects.Entities;
+using GotItBack.Data.Service.Enums;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -75,7 +77,18 @@ namespace GotItBack.Controllers
                 return View(model);
             }
             var appuser = new AuthenticationFactory().AuthenticateAppUserLogin(model.Email, model.Password);
-            
+            if (appuser != null)
+            {
+                Session["gotitbackloggedinuser"] = appuser;
+                if (appuser.Role == Usertype.Client.ToString())
+                {
+                    RedirectToAction("Create", "FoundItems");
+                }
+                if (appuser.Role == Usertype.Administrator.ToString())
+                {
+                    RedirectToAction("Index", "Contacts");
+                }
+            }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);

@@ -8,6 +8,7 @@ namespace GotItBack.Data.Service.Enums
 {
     public enum Usertype
     {
+        OverallAdministrator,
         Administrator,
         Client
 

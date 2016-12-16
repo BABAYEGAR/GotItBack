@@ -25,34 +25,12 @@ namespace GotItBack.Data.Factory.FactoryClasses
                 _db.Contacts.SingleOrDefault(n => n.Email == email && n.Password == password);
             return appUser;
         }
-
-        /// <summary>
-        ///     This method checks if a user exist
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="matricNumber"></param>
-        /// <returns></returns>
-        public bool CheckIfStudentUserExist(string email, string matricNumber)
-        {
-            var userExist = false;
-            try
-            {
-                var allUsers = _db.Contacts;
-                if (allUsers.Any(n => n.Email == email))
-                    userExist = true;
-            }
-            catch (Exception)
-            {
-                // ignored
-            }
-            return userExist;
-        }
         /// <summary>
         ///     This method checks if a user exist
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public bool CheckIfGeneralUserExist(string email)
+        public bool CheckIfUserExist(string email)
         {
             var userExist = false;
             try
