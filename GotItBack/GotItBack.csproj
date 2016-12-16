@@ -903,6 +903,10 @@
       <Project>{e418d346-fa1b-4a8f-a9e1-a7578e7a2f57}</Project>
       <Name>GotItBack.Data.Context</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GotItBack.Data.Factory\GotItBack.Data.Factory.csproj">
+      <Project>{E272268A-1AF4-4B25-B872-A96ADBB7424D}</Project>
+      <Name>GotItBack.Data.Factory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GotItBack.Data.Objects\GotItBack.Data.Objects.csproj">
       <Project>{74e2abc5-8d09-41a9-bf80-ffc6b36b1eb9}</Project>
       <Name>GotItBack.Data.Objects</Name>

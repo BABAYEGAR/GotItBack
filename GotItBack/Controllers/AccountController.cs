@@ -5,6 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using GotItBack.Data.Context.DataContext;
+using GotItBack.Data.Factory.FactoryClasses;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -17,7 +19,7 @@ namespace GotItBack.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ContactDataContext db = new ContactDataContext();
         public AccountController()
         {
         }
@@ -72,7 +74,8 @@ namespace GotItBack.Controllers
             {
                 return View(model);
             }
-
+            var appuser = new AuthenticationFactory().AuthenticateAppUserLogin(model.Email, model.Password);
+            
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);

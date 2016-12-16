@@ -45,7 +45,6 @@ namespace GotItBack.Controllers.GotItBackControllers
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name");
-            ViewBag.SubCategoryId = new SelectList(db.SubCategories, "SubCategoryId", "Name");
             return View();
         }
 
@@ -73,7 +72,6 @@ namespace GotItBack.Controllers.GotItBackControllers
             }
 
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", foundItem.CategoryId);
-            ViewBag.SubCategoryId = new SelectList(db.SubCategories, "SubCategoryId", "Name", foundItem.SubCategoryId);
             return View(foundItem);
         }
 
